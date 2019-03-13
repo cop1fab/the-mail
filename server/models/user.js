@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     isadmin: DataTypes.BOOLEAN
   }, {});
   user.associate = function(models) {
-    // associations can be defined here
+    // Association with the vote model
 
     user.hasMany(models.vote, {
       foreignKey:'id_user',

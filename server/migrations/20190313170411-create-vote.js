@@ -11,6 +11,7 @@ module.exports = {
       vote: {
         type: Sequelize.BOOLEAN
       },
+      //foreign key from users table
       id_user: {
         allowNull: false,
         type: Sequelize.INTEGER,
@@ -21,6 +22,7 @@ module.exports = {
           as:'id_user'
         }
       },
+      // Foreign key from articles table
       id_article: {
         allowNull: false,
         type: Sequelize.INTEGER,
