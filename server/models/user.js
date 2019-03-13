@@ -1,13 +1,7 @@
 export  default (sequelize, DataType) => {
-    const User = sequelize.define('user', {
-       firstName : {
-           type: DataType.STRING,
-           unique: true,
-       },
-       lastName : {
-        type: DataType.STRING,
-        unique: true,
-        },
+    const Users = sequelize.define('users', {
+       firstName : DataType.STRING,
+       lastName : DataType.STRING,
         email : {
             type: DataType.STRING,
             unique: true,
@@ -18,10 +12,10 @@ export  default (sequelize, DataType) => {
             default: false,
         },
     });
-    User.associate = (models) =>{
+    Users.associate = (models) =>{
         /* Normally, I should define foreign 
         keys here but user is a primary key 
         so I don't need association. */
     };
-    return User;
+    return Users;
 };
