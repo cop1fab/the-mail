@@ -1,7 +1,7 @@
 import http from "http";
 import app from "./app";
 
-const port=process.env.PORT || 500;
+const port=process.env.PORT || 5000;
 
 //@setting port
 app.set("port",port);

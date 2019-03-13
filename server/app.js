@@ -27,6 +27,8 @@ app.use("/api/v1/articles",Article);
 app.use("/api/v1/comment",Comment);
 app.use("/api/v1/votes",Vote);
 
+//@passport configuration
+app.use(passport.initialize());
 //@Error handling 404 Status
 app.use((req,res,next)=>{
     const error=new Error("sorry the requested resource could not be found.");
@@ -35,11 +37,12 @@ app.use((req,res,next)=>{
 });
 app.use((error,req,res,next)=>{
     res.status(error.status || 500);
-    return res.json({
+     res.json({
         error:{
             message:error.message
         }
     })
+    next();
 });
 
 export default app;
