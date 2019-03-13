@@ -1,1 +1,7 @@
-console.log("vote controller");
+class Vote{
+    /** 
+    *@Vote Methods must be here
+    */
+   }
+   
+   export default Vote
