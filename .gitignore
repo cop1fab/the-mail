@@ -61,4 +61,4 @@ typings/
 .next
 
 # Ignoring Config Files 
-server/config/config.json
+server/config/
