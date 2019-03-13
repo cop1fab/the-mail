@@ -14,7 +14,7 @@ export  default (sequelize, DataType) => {
         },
         password : DataType.STRING,
         isAdmin: {
-            type: DataType.boolean,
+            type: DataType.BOOLEAN,
             default: false,
         },
     });
