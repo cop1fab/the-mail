@@ -1,1 +1,7 @@
-console.log("article controller");
+class Article{
+ /** 
+ *@Article Methods must be here
+ */
+}
+
+export default Article
