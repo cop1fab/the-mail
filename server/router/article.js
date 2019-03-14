@@ -1,10 +1,9 @@
-import express from "express";
-//@router initialization
-const router=express.Router();
-//@controller
-import article from "../controllers/article";
+import express from 'express';
+import Article from '../controllers/article';
+// @router initialization
+const router = express.Router();
 
-router.post('/:idArticle/upvote',)
-router.patch('/:idArticle/downvote',)
+router.post('/', Article.create);
+router.get('/', Article.getAll);
 
 export default router;
