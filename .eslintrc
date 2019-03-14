@@ -24,6 +24,7 @@
 		"import/no-extraneous-dependencies": "off",
 		"no-empty": "off",
 		"linebreak-style": "off",
-		"prefer-destructuring": "off"
+		"prefer-destructuring": "off",
+		"no-unused-vars": "off"
 	}
 }

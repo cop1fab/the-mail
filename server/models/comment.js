@@ -22,16 +22,16 @@ export default (sequelize, DataTypes) => {
     }
   }, {});
   Comment.associate = (models) => {
-    // associations can be defined here
-    Comment.belongsTo(models.User, {
-      foreignKey: 'userId',
-      onDelete: 'CASCADE'
-    });
+    // // associations can be defined here
+    // Comment.belongsTo(models.User, {
+    //   foreignKey: 'id_user',
+    //   onDelete: 'CASCADE'
+    // });
 
-    Comment.belongsTo(models.Article, {
-      foreignKey: 'articleId',
-      onDelete: 'CASCADE'
-    });
+    // Comment.belongsTo(models.Article, {
+    //   foreignKey: 'id_article',
+    //   onDelete: 'CASCADE'
+    // });
   };
   return Comment;
 };

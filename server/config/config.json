@@ -8,10 +8,10 @@
   },
   "test": {
     "username": "postgres",
-    "password": null,
+    "password": "password",
     "database": "mail_test",
     "host": "127.0.0.1",
-    "dialect": "postgresql"
+    "dialect": "postgres"
   },
   "production": {
     "username": "postgres",
