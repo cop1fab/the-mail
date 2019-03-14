@@ -75,4 +75,30 @@ describe('Articles', () => {
         });
     });
   });
+
+  describe('/GET/:id Article', () => {
+    it('it should GET one article', (done) => {
+      Article.create({
+        title: 'Introduction to Nodejs',
+        body: 'Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser.',
+        tags: ['Javascript', 'Programming'],
+      }).then((data) => {
+        chai.request(app)
+          .get('/api/v1/articles/' + data.id)
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            res.body.should.have.property('status').eql(200);
+            res.body.should.have.property('data');
+            res.body.data.should.have.property('title').eql('Introduction to Nodejs');
+            res.body.data.should.have.property('body').eql('Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser.');
+            res.body.data.should.have.property('tags');
+            done();
+          });
+      })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  });
 });
