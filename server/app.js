@@ -8,7 +8,6 @@ import passport from "passport";
 import Article from "./router/article";
 import User from "./router/user";
 import Comment from "./router/comment";
-import Vote from "./router/vote";
 
 //@app initializtion
 const app=express();
@@ -25,7 +24,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use("/api/v1/users",User);
 app.use("/api/v1/articles",Article);
 app.use("/api/v1/comment",Comment);
-//app.use("/api/v1/votes",Vote);
 
 //@passport configuration
 app.use(passport.initialize());
