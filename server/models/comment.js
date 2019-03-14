@@ -1,5 +1,5 @@
 export default (sequelize, DataTypes) => {
-  const Comment = sequelize.define('comment', {
+  const Comment = sequelize.define('Comment', {
     body: {
       type: DataTypes.STRING,
       allowNull: false
@@ -23,15 +23,15 @@ export default (sequelize, DataTypes) => {
   }, {});
   Comment.associate = (models) => {
     // associations can be defined here
-    Comment.belongsTo(models.user, {
-      foreignKey: 'userId',
+    Comment.belongsTo(models.User, {
+      foreignKey: 'id_user',
       onDelete: 'CASCADE'
     });
 
-    // Comment.belongsTo(models.Article, {
-    //   foreignKey: 'id_article',
-    //   onDelete: 'CASCADE'
-    // });
+    Comment.belongsTo(models.Article, {
+      foreignKey: 'id_article',
+      onDelete: 'CASCADE'
+    });
   };
   return Comment;
 };

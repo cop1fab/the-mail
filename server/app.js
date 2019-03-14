@@ -25,7 +25,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //@router config
 app.use("/api/v1/users",User);
 app.use("/api/v1/articles",Article);
-app.use("/api/v1/comment",Comment);
+app.use("/api/v1/comments",Comment);
+//app.use("/api/v1/votes",Vote);
 
 
 // @passport configuration

@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('user', {
+  const User = sequelize.define('User', {
     name: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
@@ -9,12 +9,12 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function(models) {
     // Association with the vote model
 
-    User.hasMany(models.vote, {
+    User.hasMany(models.Vote, {
       foreignKey: 'id_user',
       as: 'votes'
     });
 
-    User.hasMany(models.comment, {
+    User.hasMany(models.Comment, {
       foreignKey: 'id_comment',
       as: 'comments'
     })

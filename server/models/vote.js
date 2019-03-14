@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Vote = sequelize.define('vote', {
+  const Vote = sequelize.define('Vote', {
     vote: DataTypes.BOOLEAN,
     id_article: {
       type: DataTypes.INTEGER,
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   Vote.associate = function(models) {
     // Association with the user model
 
-    Vote.belongsTo(models.user, {
+    Vote.belongsTo(models.User, {
       foreignKey:'id_user',
       onDelete:'CASCADE'
     })

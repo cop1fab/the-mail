@@ -1,7 +1,9 @@
-import express from "express";
+import { Router } from "express";
+import Comment from "../controllers/comment";
+
 //@router initialization
-const router=express.Router;
-//@controller
-import comment from "../controllers/comment";
+const router = Router();
+
+router.post('/articles/:articleId', Comment.create);
 
 export default router;
