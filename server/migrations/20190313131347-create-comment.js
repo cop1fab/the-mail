@@ -16,18 +16,18 @@ module.exports = {
         type: Sequelize.INTEGER,
         OnDelete: 'CASCADE',
         references: {
-          model: 'users',
+          model: 'articles',
           key: 'id',
-          as: 'articleId'
+          as: 'id_article'
         }
       },
-      userId: {
+      id_user: {
         type: Sequelize.INTEGER,
         OnDelete: 'CASCADE',
         references: {
           model: 'users',
           key: 'id',
-          as: 'userId'
+          as: 'id_user'
         }
       },
       createdAt: {
@@ -41,6 +41,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Comments');
+    return queryInterface.dropTable('comments');
   }
 };
