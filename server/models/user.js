@@ -10,8 +10,13 @@ module.exports = (sequelize, DataTypes) => {
     // Association with the vote model
 
     User.hasMany(models.vote, {
-      foreignKey:'id_user',
-      as:'votes'
+      foreignKey: 'id_user',
+      as: 'votes'
+    });
+
+    User.hasMany(models.comment, {
+      foreignKey: 'id_comment',
+      as: 'comments'
     })
   };
   return User;
