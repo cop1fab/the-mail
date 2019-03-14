@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use("/api/v1/users",User);
 app.use("/api/v1/articles",Article);
 app.use("/api/v1/comment",Comment);
-app.use("/api/v1/votes",Vote);
+//app.use("/api/v1/votes",Vote);
 
 //@passport configuration
 app.use(passport.initialize());
