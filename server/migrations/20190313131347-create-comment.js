@@ -12,7 +12,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      articleId: {
+      id_article: {
         type: Sequelize.INTEGER,
         OnDelete: 'CASCADE',
         references: {

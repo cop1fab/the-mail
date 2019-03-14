@@ -4,5 +4,6 @@ import Article from '../controllers/article';
 const router = express.Router();
 
 router.post('/', Article.create);
+router.get('/', Article.getAll);
 
 export default router;
