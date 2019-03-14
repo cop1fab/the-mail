@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import passport from "passport";
+import passportAuth from "./middleware/passport";
 
 //@router
 import Article from "./router/article";
@@ -25,10 +26,11 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use("/api/v1/users",User);
 app.use("/api/v1/articles",Article);
 app.use("/api/v1/comment",Comment);
-//app.use("/api/v1/votes",Vote);
+
 
 //@passport configuration
 app.use(passport.initialize());
+passportAuth(passport);
 //@Error handling 404 Status
 app.use((req,res,next)=>{
     const error=new Error("sorry the requested resource could not be found.");

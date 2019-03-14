@@ -1,7 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../app';
-import { endianness } from 'os';
 
 const {
     expect
@@ -14,14 +13,12 @@ describe('POST /api/v1/auth/signup', () =>{
         chai.request(app)
         .post('/api/v1/auth/signup')
         .send({
-            firstName: 'Copain',
-            lastName: 'Fabrice',
+            name: 'Copain',
             email: 'bienaime.fabrice@andela.com',
             password: '2423K!'
         })
         .end((err, res) =>{
-            expect(req.body.firstName).to.equal('Copain');
-            expect(req.body.lastName).to.equal('Fabrice');
+            expect(req.body.name).to.equal('Copain');
             expect(req.body.email).to.equal('bienaime.fabrice@andela.com');
             done();
         })
