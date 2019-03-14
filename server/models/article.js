@@ -6,7 +6,12 @@ module.exports = (sequelize, DataTypes) => {
     tags: DataTypes.ARRAY(DataTypes.STRING)
   }, {});
   Article.associate = function(models) {
-    // associations can be defined here
+    // Association with the vote model
+
+    Article.hasMany(models.vote, {
+      foreignKey:'id_article',
+      as:'votes'
+    })
   };
   return Article;
 };
