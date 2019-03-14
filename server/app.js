@@ -8,7 +8,6 @@ import passport from "passport";
 import Article from "./router/article";
 import User from "./router/user";
 import Comment from "./router/comment";
-import Vote from "./router/vote";
 
 //@app initializtion
 const app=express();
