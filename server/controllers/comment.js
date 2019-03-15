@@ -47,6 +47,36 @@ class CommentController {
             });
         }
     }
+
+    /**
+     * Fetch all comments of an article
+     * @param {Object} req - Request made by user
+     * @param {Object} res - Response to the request
+     * @returns {Object} Response
+     */
+    async getAll(req, res) {
+        const { id_article } = req.params;
+        try {
+            const comments = await Comment.findAll({
+                where: { id_article }
+            });
+
+            // Is comment already exist
+            if (comments.length === 0) {
+                throw new Error('No comments for this article');
+            }
+            console.log(comments)
+            return res.status(200).send({
+                status: 200,
+                data: comments,
+            });
+        } catch (err) {
+            return res.status(404).send({
+                status: 404,
+                error: err.message
+            });
+        }
+    }
 }
    
 export default new CommentController();
