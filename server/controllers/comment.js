@@ -77,6 +77,32 @@ class CommentController {
             });
         }
     }
+
+    /**
+     * Delete specific comment
+     * @param {Object} req - Request made by user
+     * @param {Object} res - Response to the request
+     * @returns {Object} Response
+     */
+    async delete(req, res) {
+        const id = parseInt(req.params.id, 10);
+        try {
+            const IsCommentDeleted = await Comment.destroy({
+                where: { id , id_user: req.user.id }
+            });
+            console.log(IsCommentDeleted);
+            if (IsCommentDeleted === 0) throw new Error('Given comment id is not available');
+            return res.status(200).send({
+                status: 200,
+                message: 'Comment deleted successfully',
+            });
+        } catch (err) {
+            return res.status(404).send({
+                status: 404,
+                error: err.message
+            });
+        }
+    }
 }
    
 export default new CommentController();
