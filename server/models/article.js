@@ -6,17 +6,17 @@ module.exports = (sequelize, DataTypes) => {
     body: DataTypes.TEXT,
     tags: DataTypes.ARRAY(DataTypes.STRING),
   }, {});
-  Article.associate = function(models) {
+  Article.associate = function (models) {
     // Association with the vote model
 
     Article.hasMany(models.Vote, {
       foreignKey: 'id_article',
-      as: 'votes'
+      as: 'votes',
     });
 
     Article.hasMany(models.Comment, {
-      foreignKey: 'id_comment',
-      as: 'comments'
+      foreignKey: 'id_article',
+      as: 'comments',
     });
   };
   return Article;

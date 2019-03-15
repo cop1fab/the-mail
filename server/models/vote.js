@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   Vote.associate = function(models) {
     // Association with the user model
 
-    Vote.belongsTo(models.User, {
+    Vote.belongsTo(models.user, {
       foreignKey:'id_user',
       onDelete:'CASCADE'
     })

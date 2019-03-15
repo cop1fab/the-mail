@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('User', {
+  const User = sequelize.define('user', {
     name: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     User.hasMany(models.Comment, {
-      foreignKey: 'id_comment',
+      foreignKey: 'id_user',
       as: 'comments'
     })
   };

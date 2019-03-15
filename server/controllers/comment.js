@@ -1,4 +1,5 @@
 import models from '../models';
+import Validation from '../helpers/validation';
 
 const Comment = models.Comment;
 
@@ -14,26 +15,32 @@ class CommentController {
      * @param {Object} res - Response to the request
      * @returns {Object} Response
      */
-    async create(req, res) {
+    async create (req, res) {
         const { body } = req.body;
-        const { articleId } = req.params;
-        const userId = 1; // User Id should be extracted from token
-        console.log(req.body);
+        const { id_article } = req.params;
         try {
             // validate data before storing in the database
+            await Validation.validateComment(req.body);
 
-            const comment = await Comment
-                .create({
-                    body,
-                    id_article : articleId,
-                    id_user : userId
+            const [comment, created] = await Comment
+                .findOrCreate({
+                    where: {
+                        body,
+                        id_article,
+                        id_user: req.user.id
+                    }
                 });
+            // Is comment already exist
+            if (!created) {
+                throw new Error('Given comment is already created by the same user on the same article');
+            }
+
             return res.status(201).send({
                 status: 201,
-                data: comment
+                data: comment,
             });
         }
-        catch (err) {
+        catch(err) {
             return res.status(400).send({
                 status: 400,
                 error: err.message

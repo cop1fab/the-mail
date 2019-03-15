@@ -1,9 +1,9 @@
 import { Router } from "express";
 import Comment from "../controllers/comment";
+import Passport from 'passport';
 
-//@router initialization
 const router = Router();
 
-router.post('/articles/:articleId', Comment.create);
+router.delete('/:id', Passport.authenticate('jwt', { session: false }), Comment.delete);
 
 export default router;
